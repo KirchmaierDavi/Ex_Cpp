@@ -10,7 +10,7 @@ class Aluno {
         double notas[7];
 
     public:
-        Aluno(string n, string mat);
+        Aluno();
         ~Aluno();
 
         void leNotas();

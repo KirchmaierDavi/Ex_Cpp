@@ -6,8 +6,9 @@ using namespace std;
 
 
 int main(){
-    Aluno a("Davi Kirchmaier Paiva", "452968421");
+    Aluno a;
     double median = 0;
+    a.getNome();
     a.leNotas();
     median = a.calculaMedia();
     cout<<"Media e de: "<<median<< endl;
