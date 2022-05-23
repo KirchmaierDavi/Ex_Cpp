@@ -15,4 +15,6 @@ class Aluno {
 
         void leNotas();
         double calculaMedia();
+        string getNome();
+        void setNome(string n);
 };
