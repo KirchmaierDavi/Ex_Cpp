@@ -4,10 +4,10 @@
 
 using namespace std;
 
-Aluno::Aluno(){
-    nome = "";
-    matricula = "";
-    idade = 0;
+Aluno::Aluno(string n, string mat, int id){
+    nome = n;
+    matricula = mat;
+    idade = id;
 }
 
 
@@ -33,10 +33,25 @@ double Aluno::calculaMedia(){
 }
 
 string Aluno::getNome(){
-    cout << "Digite seu nome:"<< endl;
-    cin >> nome;
+    return nome;
 }
 
 void Aluno::setNome(string n){
-    cout << nome << endl;
+    nome = n;
+}
+
+string Aluno::getMatricula(){
+    return matricula;
+}
+
+void Aluno::setMatricula(string mat){
+    matricula = mat;
+}
+
+int Aluno::getIdade(){
+    return idade;
+}
+
+void Aluno::setIdade(int id){
+    idade = id;
 }
