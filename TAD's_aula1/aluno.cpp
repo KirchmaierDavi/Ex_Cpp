@@ -55,3 +55,9 @@ int Aluno::getIdade(){
 void Aluno::setIdade(int id){
     idade = id;
 }
+
+void Aluno::setP(bool p){
+    for(int i=0;i<7;i++){
+        presenca[i] = p;
+    }
+}

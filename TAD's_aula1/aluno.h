@@ -8,7 +8,7 @@ class Aluno {
         int idade;
         string nome, matricula;
         double notas[7];
-
+        bool presenca[7];
     public:
         Aluno(string n, string mat, int id);
         ~Aluno();
@@ -21,4 +21,5 @@ class Aluno {
         void setMatricula(string mat);
         int getIdade();
         void setIdade(int id);
+        void setP(bool p);
     };
