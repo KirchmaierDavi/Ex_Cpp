@@ -58,5 +58,7 @@ int main(){
     cout <<"Quantidade de impares: "<< imp << endl; 
     cout <<"Quantidade de negativos: "<< neg << endl; 
 
+    delete [] vet;
+
     return 0;
 }
