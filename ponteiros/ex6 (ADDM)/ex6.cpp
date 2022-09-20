@@ -46,6 +46,8 @@ int main(){
 
     cout <<"O resultado do Produto escalar é: "<< prodEscalar(n, vet1, vet2) << endl;
 
+    delete [] vet1;
+    delete [] vet2;
 
     return 0;
 }
