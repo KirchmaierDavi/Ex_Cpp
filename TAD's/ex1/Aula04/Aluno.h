@@ -9,7 +9,7 @@ using namespace std;
 class Aluno
 {
     public:
-        Aluno(string n, string m);
+        Aluno(string n, string m, int i);
         ~Aluno();
 
         // operacoes
@@ -19,9 +19,14 @@ class Aluno
         // exercicio 1
         void leNotas();
         double calculaMedia();
+        void leInfo();
 
         // exercicio 2
-        // implemente aqui
+        void setIdade(int id);
+        int getIdade();
+
+        void setMatricula(string mat);
+        string getMatricula();
 
         // exercicio 5
         // implemente aqui
@@ -35,7 +40,7 @@ class Aluno
         // implemente aqui
 
         // exercicio 4
-        // implemente aqui
+        bool presenca[7];
 };
 
 #endif // ALUNO_H

@@ -1,10 +1,11 @@
 #include "Aluno.h"
 
-Aluno::Aluno(string n, string m)
+Aluno::Aluno(string n, string m, int i)
 {
     cout << "Criando aluno" << endl;
     nome = n;
     matricula = m;
+    idade = i;
 }
 
 Aluno::~Aluno()
@@ -16,15 +17,19 @@ Aluno::~Aluno()
 // Exercicio 1
 // ----------------------------------------------------------------------------
 
-void Aluno::leNotas()
-{
-    // Implemente sua solucao aqui
+void Aluno::leNotas(){
+    for(int i = 0; i < 7;i++){
+        cout <<"Digite a nota da prova "<< i + 1 << endl;
+        cin >> notas[i];
+    }
 }
 
-double Aluno::calculaMedia()
-{
-    // Implemente sua solucao aqui
-    return 0;
+double Aluno::calculaMedia(){
+    float media = 0;
+    for(int i = 0; i < 7; i++){
+        media = media + notas[i];
+    }
+    return media/7;
 }
 
 // ----------------------------------------------------------------------------
@@ -43,12 +48,38 @@ string Aluno::getNome()
 // Exercicio 2
 // ----------------------------------------------------------------------------
 
-// Implemente aqui a sua solucao
+void Aluno::setIdade(int i){
+    idade = i;
+}
+
+int Aluno::getIdade(){
+    return idade;
+}
+
+void Aluno::setMatricula(string mat){
+    matricula = mat;
+}
+
+string Aluno::getMatricula(){
+    return matricula;
+}
 
 
 // ----------------------------------------------------------------------------
 // Exercicio 3
 // ----------------------------------------------------------------------------
 
-// Implemente aqui sua solucao
+void Aluno::leInfo(){
+    cout <<"Digite o seu nome:"<< endl;
+    cin >> nome;
+    setNome(nome);
+
+    cout <<"Digite sua Matricula:"<< endl;
+    cin >> matricula;
+    setMatricula(matricula);
+
+    cout <<"Digite sua idade:"<< endl;
+    cin >> idade;
+    setIdade(idade);
+}
 
