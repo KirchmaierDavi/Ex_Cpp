@@ -29,15 +29,12 @@ class Aluno
         string getMatricula();
 
         // exercicio 5
-        // implemente aqui
+        void LePresenca();
 
     private:
         int idade;
         string nome, matricula;
         double notas[7];
-
-        // exercicio 3
-        // implemente aqui
 
         // exercicio 4
         bool presenca[7];

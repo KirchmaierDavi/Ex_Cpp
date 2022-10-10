@@ -83,3 +83,9 @@ void Aluno::leInfo(){
     setIdade(idade);
 }
 
+void Aluno::LePresenca(){
+    for(int i = 0; i < 7; i++){
+        cout <<"Digite sua presenca na aula "<< i + 1 <<" ,use 1 pra presente e 0 para ausente"<< endl;
+        cin >> presenca[i];
+    }
+}
