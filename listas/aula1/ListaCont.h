@@ -22,6 +22,12 @@ public:
     void removeK(int k);
     void removeInicio();
     void imprime();
+
+    int numNos();
+    int buscaMaior (int val);
+    void limpar();
+
+    void insereValores(int tam, int vet[]);
 };
 
 #endif // LISTACONT_H_INCLUDED
