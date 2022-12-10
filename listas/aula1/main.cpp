@@ -22,7 +22,18 @@ int main()
     l.insereValores(3, vet);
     l.imprime();
     cout << l.numNos() << endl;
+
+    ListaCont l1(50);
+    for(int i = 0; i < 50; i++){
+        l1.insereFinal(1);
+    }
+
+    l1.imprime();
     
+    ListaCont l2(25);
+    ListaCont l3(25);
+
+    l1.concatena(l2, l3);
 
     return 0;
 }
