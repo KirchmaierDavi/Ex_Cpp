@@ -7,7 +7,7 @@ using namespace std;
 
 int numAleatorio(int a, int b)
 {
-    return a + rand()%(b - a + 1) ; /// retorna um numero inteiro aleatório entre a e b
+    return a + rand()%(b - a + 1) ; /// retorna um numero inteiro aleatï¿½rio entre a e b
 }
 
 int main()
@@ -21,7 +21,7 @@ int main()
     cout << "Inserindo valores: ";
     for(int i = 1; i <= NumNos; i++)
     {
-        int val =  numAleatorio(0, 50); /// cria um valor aleatório entre 0 e 50
+        int val =  numAleatorio(0, 50); /// cria um valor aleatï¿½rio entre 0 e 50
         cout << val << ", ";
         l.insereInicio(val);
     }
@@ -33,6 +33,12 @@ int main()
         cout << "Sim" << endl;
     else
         cout << "Nao" << endl;
+    
+    l.imprime();
+
+    cout << endl <<"O numero de nos e: "<< l.numNos() << " ";
+    cout << endl <<"O indice da busca maior Ã©: "<< l.buscaMaior(20) << " ";
+    cout << endl <<"A media Ã©: "<< l.calculaMedia() << " ";
 
     return 0;
 };

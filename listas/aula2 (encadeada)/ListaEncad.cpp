@@ -132,3 +132,60 @@ void ListaEncad::removeFinal()
     else
         cout << "ERRO: lista vazia!" << endl;
 }
+
+void ListaEncad::imprime(){
+    No* p;
+    for(p = primeiro; p != NULL; p = p->getProx()){
+        cout << p->getInfo() << " ";
+    }
+}
+
+int ListaEncad::numNos(){
+    return n;
+}
+
+int ListaEncad::buscaMaior(int val){
+    No* p;
+    int i = 0;
+    for(p = primeiro; p != NULL; p = p->getProx()){
+        if(p->getInfo() > val){
+            return i;
+        }
+        i++;
+    }
+    return -1;
+}
+
+void ListaEncad::limpar(){
+    No* p = ultimo;
+    while(p != NULL){
+        removeFinal();
+        p = ultimo;
+    } 
+    cout<< endl <<"Lista limpa!";
+}
+
+float ListaEncad::calculaMedia(){
+    float media = 0;
+    No* p;
+    for(p = primeiro; p != NULL; p = p->getProx()){
+        media = media + (p->getInfo());
+    }
+    return media/n;
+}
+
+void ListaEncad::concatena(ListaEncad *l2){
+    if(this->primeiro != NULL && l2->primeiro != NULL){
+        this->ultimo->setProx(l2->primeiro);
+        this->ultimo = l2->ultimo;
+        this->n = this->n + l2->n;
+        l2->primeiro = l2->ultimo = NULL;
+        l2->n = 0;
+    }else{
+        cout<<"Listas vazias"<< endl;
+    }
+}
+
+ListaEncad* ListaEncad::partir(int x){
+    return this;
+}

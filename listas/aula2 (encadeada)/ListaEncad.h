@@ -8,12 +8,20 @@ public:
     ListaEncad();
     ~ListaEncad();
     bool busca(int val);        /// retorna true caso val esteja na lista e false caso contrario
-    int get(int k);             /// retorna o valor do k-ésimo elemento
-    void set(int k, int val);   /// altera o valor do k-ésimo elemento
-    void insereInicio(int val); /// insere um novo No contendo val no início da lista
+    int get(int k);             /// retorna o valor do k-ï¿½simo elemento
+    void set(int k, int val);   /// altera o valor do k-ï¿½simo elemento
+    void insereInicio(int val); /// insere um novo No contendo val no inï¿½cio da lista
     void insereFinal(int val);  /// insere um novo No contendo val no final da lista
     void removeInicio();        /// remove o primeiro No da lista
-    void removeFinal();         /// remove o último No da lista
+    void removeFinal();         /// remove o ï¿½ltimo No da lista
+
+    void imprime();
+    int numNos();
+    int buscaMaior(int val);
+    void limpar();
+    float calculaMedia();
+    void concatena(ListaEncad *l2);
+    ListaEncad* partir(int x);
 
 private:
     No *primeiro;  /// ponteiro para o primeiro No da lista
