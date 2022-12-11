@@ -12,7 +12,8 @@ int numAleatorio(int a, int b)
 
 int main()
 {
-    ListaEncad l; /// cria lista vazia
+    ListaEncad l;
+    ListaEncad l2; /// cria lista vazia
     int NumNos = 12;
 
     srand(time(NULL));
@@ -24,6 +25,7 @@ int main()
         int val =  numAleatorio(0, 50); /// cria um valor aleat�rio entre 0 e 50
         cout << val << ", ";
         l.insereInicio(val);
+        l2.insereInicio(val);
     }
     cout << endl;
 
@@ -39,6 +41,10 @@ int main()
     cout << endl <<"O numero de nos e: "<< l.numNos() << " ";
     cout << endl <<"O indice da busca maior é: "<< l.buscaMaior(20) << " ";
     cout << endl <<"A media é: "<< l.calculaMedia() << " ";
+
+    l.concatena(&l2);
+
+    l.imprime();
 
     return 0;
 };
