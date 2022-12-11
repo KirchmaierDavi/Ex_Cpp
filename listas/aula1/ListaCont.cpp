@@ -149,7 +149,3 @@ void ListaCont::insereValores(int tam, int vet2[]){
     n = n + tam;
 }
 
-
-void ListaCont::concatena(int l2[],int l3[]){
-
-}

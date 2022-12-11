@@ -28,7 +28,6 @@ public:
     void limpar();
 
     void insereValores(int tam, int vet[]);
-    void concatena(int l2[],int l3[]);
 };
 
 #endif // LISTACONT_H_INCLUDED

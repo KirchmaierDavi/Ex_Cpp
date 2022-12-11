@@ -24,16 +24,28 @@ int main()
     cout << l.numNos() << endl;
 
     ListaCont l1(50);
-    for(int i = 0; i < 50; i++){
+
+    for(int i = 0; i < 25; i++){
         l1.insereFinal(1);
     }
 
-    l1.imprime();
-    
+    for(int i = 0; i < 25; i++){
+        l1.insereFinal(2);
+    }
+
     ListaCont l2(25);
     ListaCont l3(25);
 
-    l1.concatena(l2, l3);
+    for(int i = 0; i < 25; i++){
+        l2.insereFinal(l1.get(i));
+    }
+    l2.imprime();
+
+    for(int i = 0; i < 25; i++){
+        l3.insereFinal(l1.get(i + 25));
+    }
+    l3.imprime();
+    
 
     return 0;
 }
