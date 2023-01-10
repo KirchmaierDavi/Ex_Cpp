@@ -17,6 +17,8 @@ class ArvBin
     void insere(int x);
     int contaNos();
     int contaNosFolhas();
+    int altura();
+    int contaImpar();
 
 
   private:
@@ -31,6 +33,8 @@ class ArvBin
     NoArv* auxInsere(NoArv *p, int x);
     int auxcontaNos(NoArv *p);
     int auxcontaNosFolhas(NoArv *p);
+    int auxAltura(NoArv *p);
+    int auxContaImpar(NoArv *p);
 };
 
 #endif // ARVBIN_H_INCLUDED

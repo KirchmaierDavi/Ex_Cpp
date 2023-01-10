@@ -178,3 +178,37 @@ int ArvBin::auxcontaNosFolhas(NoArv *p){
         return (auxcontaNosFolhas(p->getEsq())) + (auxcontaNosFolhas(p->getDir()));
     }
 }
+
+int ArvBin::altura(){
+    return auxAltura(raiz);
+}
+
+int ArvBin::auxAltura(NoArv *p){
+    if(p == NULL){
+        return 0;
+    }else{
+        int esq = auxAltura(p->getEsq());
+        int dir = auxAltura(p->getDir());
+        if(esq > dir){
+            return esq + 1;
+        }
+        return dir + 1;
+    }
+}
+
+int ArvBin::contaImpar(){
+    return auxContaImpar(raiz);
+}
+
+int ArvBin::auxContaImpar(NoArv *p){
+    if(p == NULL){
+        if(p->getInfo() % 2 == 0){
+            return 0;
+        }
+        return 1;
+    }else if(p->getInfo() % 2 == 0){
+        return auxContaImpar(p->getEsq()) + auxContaImpar(p->getDir());
+    }else{
+        return 1 + auxContaImpar(p->getEsq()) + auxContaImpar(p->getDir());
+    }
+}
