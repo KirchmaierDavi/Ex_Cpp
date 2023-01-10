@@ -11,5 +11,7 @@ int main()
     arv.insere(10);
     arv.preOrdem();
     cout << "O Numero de Nos e:" << arv.contaNos() << endl;
+    cout << "O Numero de Nos folhas  e:" << arv.contaNosFolhas() << endl;
+    
     return 0;
 }

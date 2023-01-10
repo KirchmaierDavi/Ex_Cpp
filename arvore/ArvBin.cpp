@@ -164,3 +164,17 @@ int ArvBin::auxcontaNos(NoArv* p){
         return 1 + (auxcontaNos(p->getEsq())) + (auxcontaNos(p->getDir()));
     }
 }
+
+int ArvBin::contaNosFolhas(){
+    return auxcontaNosFolhas(raiz);
+}
+
+int ArvBin::auxcontaNosFolhas(NoArv *p){
+    if(p == NULL){
+        return 0;
+    }else if(p->getDir() == NULL && p->getEsq() == NULL){
+        return 1 + (auxcontaNosFolhas(p->getEsq())) + (auxcontaNosFolhas(p->getDir()));
+    }else{
+        return (auxcontaNosFolhas(p->getEsq())) + (auxcontaNosFolhas(p->getDir()));
+    }
+}
