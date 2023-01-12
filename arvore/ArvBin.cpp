@@ -202,13 +202,12 @@ int ArvBin::contaImpar(){
 
 int ArvBin::auxContaImpar(NoArv *p){
     if(p == NULL){
-        if(p->getInfo() % 2 == 0){
-            return 0;
-        }
-        return 1;
-    }else if(p->getInfo() % 2 == 0){
-        return auxContaImpar(p->getEsq()) + auxContaImpar(p->getDir());
+        return 0;
     }else{
-        return 1 + auxContaImpar(p->getEsq()) + auxContaImpar(p->getDir());
+        if(p->getInfo() % 2 == 0){
+            return auxContaImpar(p->getEsq()) + auxContaImpar(p->getDir());
+        }else{
+            return 1 + auxContaImpar(p->getEsq()) + auxContaImpar(p->getDir());
+        }
     }
 }
