@@ -211,3 +211,18 @@ int ArvBin::auxContaImpar(NoArv *p){
         }
     }
 }
+
+int ArvBin::contaFolhaImpar(){
+    return auxcontaFolhaImpar(raiz);
+}
+
+int ArvBin::auxcontaFolhaImpar(NoArv *p){
+    if(p == NULL){
+        return 0;
+    }else{
+        if(p->getDir() == NULL && p->getEsq() == NULL && p->getInfo() % 2 != 0){
+            return 1 + auxcontaFolhaImpar(p->getEsq()) + auxcontaFolhaImpar(p->getDir());
+        }
+        return auxcontaFolhaImpar(p->getEsq()) + auxcontaFolhaImpar(p->getDir());
+    }
+}

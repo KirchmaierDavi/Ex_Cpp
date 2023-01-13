@@ -19,11 +19,13 @@ class ArvBin
     int contaNosFolhas();
     int altura();
     int contaImpar();
+    int contaFolhaImpar();
 
 
   private:
     NoArv *raiz; // ponteiro para o No raiz da �rvore
 
+    int auxcontaFolhaImpar(NoArv *p);
     NoArv* libera(NoArv *p);
     bool auxBusca(NoArv *p, int x);
     void auxPreOrdem(NoArv *p);
