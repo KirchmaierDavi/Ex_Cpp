@@ -15,6 +15,7 @@ int main()
     cout << "A altura da arvore e: " << arv.altura() << endl;
     cout << "O numero de impares e: " << arv.contaImpar() << endl;
     cout << "O numero de folhas impares e: " << arv.contaFolhaImpar() << endl;
+    arv.imprimeNivel(2);
     
     return 0;
 }

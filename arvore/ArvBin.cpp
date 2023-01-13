@@ -226,3 +226,19 @@ int ArvBin::auxcontaFolhaImpar(NoArv *p){
         return auxcontaFolhaImpar(p->getEsq()) + auxcontaFolhaImpar(p->getDir());
     }
 }
+
+void ArvBin::imprimeNivel(int k){
+    auximprimeNivel(raiz, 0, k);
+    cout << endl;
+}
+
+void ArvBin::auximprimeNivel(NoArv *p, int atual, int k){
+    if(p != NULL){
+        if(atual == k){
+            cout << p->getInfo() << " " ;
+        }else{
+            auximprimeNivel(p->getDir(), atual + 1, k);
+            auximprimeNivel(p->getEsq(), atual + 1, k);
+        }
+    }
+}
