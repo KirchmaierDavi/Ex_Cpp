@@ -17,6 +17,8 @@ int main()
     cout << "O numero de folhas impares e: " << arv.contaFolhaImpar() << endl;
     arv.imprimeNivel(2);
     cout << "A media do nivel 1 é: " << arv.mediaNivel(1) << endl;
+    cout << "Menor valor da arvore é: " << arv.min() << endl;
+    cout << "Maior valor da arvore é: " << arv.max() << endl;
     
     return 0;
 }

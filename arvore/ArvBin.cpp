@@ -263,3 +263,35 @@ void ArvBin::auxMediaNivel(NoArv *p, int k, int atual, int *cont, int *soma){
         }
     }
 }
+
+int ArvBin::min(){
+    int menor = raiz->getInfo();
+    auxMin(raiz, &menor);
+    return menor;
+}
+
+void ArvBin::auxMin(NoArv *p, int *menor){
+    if(p != NULL){
+        if(p->getInfo() < *menor){
+            *menor = p->getInfo();
+        }
+        auxMin(p->getDir(), menor);
+        auxMin(p->getEsq(), menor);
+    }
+}
+
+int ArvBin::max(){
+    int maior = raiz->getInfo();
+    auxMax(raiz, &maior);
+    return maior;
+}
+
+void ArvBin::auxMax(NoArv *p, int *maior){
+    if(p != NULL){
+        if(p->getInfo() > *maior){
+            *maior = p->getInfo();
+        }
+        auxMax(p->getDir(), maior);
+        auxMax(p->getEsq(), maior);
+    }
+}
