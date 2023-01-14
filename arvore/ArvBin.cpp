@@ -242,3 +242,24 @@ void ArvBin::auximprimeNivel(NoArv *p, int atual, int k){
         }
     }
 }
+
+float ArvBin::mediaNivel(int k){
+    int cont = 0;
+    int soma = 0;
+    auxMediaNivel(raiz, k, 0, &cont, &soma);
+    return (float)soma/cont;
+}
+
+void ArvBin::auxMediaNivel(NoArv *p, int k, int atual, int *cont, int *soma){
+    if(p != NULL){
+        if(atual == k){
+            *cont = *cont + 1;
+            *soma = *soma + p->getInfo();
+            auxMediaNivel(p->getEsq(), k, atual, cont, soma);
+            auxMediaNivel(p->getDir(), k, atual, cont, soma);
+        }else{
+            auxMediaNivel(p->getEsq(), k, atual + 1, cont, soma);
+            auxMediaNivel(p->getDir(), k, atual + 1, cont, soma);
+        }
+    }
+}

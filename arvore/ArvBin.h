@@ -21,6 +21,7 @@ class ArvBin
     int contaImpar();
     int contaFolhaImpar();
     void imprimeNivel(int k);
+    float mediaNivel(int k);
 
 
   private:
@@ -40,6 +41,7 @@ class ArvBin
     int auxContaImpar(NoArv *p);
     int auxcontaFolhaImpar(NoArv *p);
     void auximprimeNivel(NoArv *p, int k, int atual);
+    void auxMediaNivel(NoArv *p, int k, int atual, int *cont, int *soma);
 };
 
 #endif // ARVBIN_H_INCLUDED

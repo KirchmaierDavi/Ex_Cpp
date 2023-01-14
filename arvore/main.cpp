@@ -16,6 +16,7 @@ int main()
     cout << "O numero de impares e: " << arv.contaImpar() << endl;
     cout << "O numero de folhas impares e: " << arv.contaFolhaImpar() << endl;
     arv.imprimeNivel(2);
+    cout << "A media do nivel 1 é: " << arv.mediaNivel(1) << endl;
     
     return 0;
 }
