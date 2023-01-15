@@ -37,7 +37,6 @@ class ArvBin
     void auxPreOrdem(NoArv *p);
     NoArv* auxMontaArvore();
     void auxImpNivel(NoArv *p, int atual, int k);
-    void auxInverte(NoArv * p);
     NoArv* auxInsere(NoArv *p, int x);
     int auxcontaNos(NoArv *p);
     int auxcontaNosFolhas(NoArv *p);

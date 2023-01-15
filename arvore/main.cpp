@@ -19,6 +19,7 @@ int main()
     cout << "A media do nivel 1 é: " << arv.mediaNivel(1) << endl;
     cout << "Menor valor da arvore é: " << arv.min() << endl;
     cout << "Maior valor da arvore é: " << arv.max() << endl;
-    
+    arv.inverte();
+    arv.preOrdem();
     return 0;
 }

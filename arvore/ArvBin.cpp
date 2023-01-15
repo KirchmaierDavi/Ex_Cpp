@@ -301,10 +301,17 @@ void ArvBin::inverte(){
 }
 
 void ArvBin::auxInverte(NoArv *p){
-    int *aux;
+    NoArv *aux;
     if(p != NULL){
         if(p->getDir() != NULL && p->getEsq() != NULL){
-            
+            aux = p->getDir();
+            p->setDir(p->getEsq());
+            p->setEsq(aux);
+            auxInverte(p->getDir());
+            auxInverte(p->getEsq());
+        }else{
+            auxInverte(p->getDir());
+            auxInverte(p->getEsq());
         }
     }
 }
