@@ -24,6 +24,8 @@ class ArvBin
     float mediaNivel(int k);
     int min();
     int max();
+    void inverte();
+
 
 
   private:
@@ -46,6 +48,7 @@ class ArvBin
     void auxMediaNivel(NoArv *p, int k, int atual, int *cont, int *soma);
     void auxMin(NoArv *p, int *menor);
     void auxMax(NoArv *p, int *maior);
+    void auxInverte(NoArv *p);
 };
 
 #endif // ARVBIN_H_INCLUDED

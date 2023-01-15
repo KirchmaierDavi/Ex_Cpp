@@ -295,3 +295,16 @@ void ArvBin::auxMax(NoArv *p, int *maior){
         auxMax(p->getEsq(), maior);
     }
 }
+
+void ArvBin::inverte(){
+    auxInverte(raiz);
+}
+
+void ArvBin::auxInverte(NoArv *p){
+    int *aux;
+    if(p != NULL){
+        if(p->getDir() != NULL && p->getEsq() != NULL){
+            
+        }
+    }
+}
