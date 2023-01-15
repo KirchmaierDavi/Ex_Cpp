@@ -42,6 +42,11 @@ int main()
     cout << "Arvore Binaria de Busca final:" << endl;
     arv.imprime();
 
+    cout<<"O maior numero da arvore é: "<< arv.maior() << endl;
+    cout<<"O menor numero da arvore é: "<< arv.menor() << endl;
+    arv.removeMaior();
+    arv.imprime();
+
     return 0;
 }
 

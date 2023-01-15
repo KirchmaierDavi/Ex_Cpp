@@ -159,3 +159,48 @@ float ArvBinBusca::mediaCaminho(int ch)
     }
     return (float)soma/cont;
 }
+
+int ArvBinBusca::maior(){
+    return auxMaior(raiz);
+}
+
+int ArvBinBusca::auxMaior(NoArv *p){
+    if(p == NULL){
+        return 0;
+    }else{
+        if(p->getDir() == NULL){
+            return p->getInfo();
+        }
+        return auxMaior(p->getDir());
+    }
+}
+
+int ArvBinBusca::menor(){
+    return auxMenor(raiz);
+}
+
+int ArvBinBusca::auxMenor(NoArv *p){
+    if(p == NULL){
+        return 0;
+    }else{
+        if(p->getEsq() == NULL){
+            return p->getInfo();
+        }
+        return auxMenor(p->getEsq());
+    }
+}
+
+void ArvBinBusca::removeMaior(){
+    auxRemoveMaior(raiz);
+}
+
+void ArvBinBusca::auxRemoveMaior(NoArv *p){
+    if(p != NULL){
+        if(p->getDir() == NULL && p->getEsq() == NULL){
+            removeFolha(p);
+        }else if(p->getDir() == NULL){
+            libera(p);
+        }
+        auxRemoveMaior(p->getDir());
+    }
+}
