@@ -241,7 +241,7 @@ int ArvBinBusca::auxContaParesCaminho(int x, NoArv *p, int *cont){
             return auxContaParesCaminho(x , p->getDir(), cont) + auxContaParesCaminho(x , p->getEsq(), cont);
         }else if(p->getInfo() % 2 == 0 &&  p->getInfo() == x){
             *cont = *cont + 1;
-            return auxContaParesCaminho(x , p->getDir(), cont) + auxContaParesCaminho(x , p->getEsq(), cont);
+            return *cont;
         }else{
             return auxContaParesCaminho(x , p->getDir(), cont) + auxContaParesCaminho(x , p->getEsq(), cont);
         }
