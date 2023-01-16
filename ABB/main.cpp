@@ -44,9 +44,11 @@ int main()
 
     cout<<"O maior numero da arvore é: "<< arv.maior() << endl;
     cout<<"O menor numero da arvore é: "<< arv.menor() << endl;
+    cout <<"O numero de pares até o valor 10 é: "<< arv.contaParesCaminho(10) << endl;
+    
     arv.removeMaior();
+    arv.removeMenor();
     arv.imprime();
-
     return 0;
 }
 

@@ -194,13 +194,56 @@ void ArvBinBusca::removeMaior(){
     auxRemoveMaior(raiz);
 }
 
-void ArvBinBusca::auxRemoveMaior(NoArv *p){
+NoArv* ArvBinBusca::auxRemoveMaior(NoArv *p){
     if(p != NULL){
         if(p->getDir() == NULL && p->getEsq() == NULL){
-            removeFolha(p);
+            p = removeFolha(p);
+            return p;
         }else if(p->getDir() == NULL){
-            libera(p);
+            p = remove1Filho(p);
+            return p;
         }
-        auxRemoveMaior(p->getDir());
+    }
+    p->setDir(auxRemoveMaior(p->getDir()));
+    return p;
+}
+
+void ArvBinBusca::removeMenor(){
+    auxRemoveMenor(raiz);
+}
+
+NoArv* ArvBinBusca::auxRemoveMenor(NoArv *p){
+    if(p != NULL){
+        if(p->getEsq() == NULL && p->getDir() == NULL){
+            p = removeFolha(p);
+            return p;
+        }else if(p->getEsq() == NULL){
+            p = remove1Filho(p);
+            return p;
+        }
+    }
+    p->setEsq(auxRemoveMenor(p->getEsq()));
+    return p;
+}
+
+int ArvBinBusca::contaParesCaminho(int x){
+    int cont = 0;
+    auxContaParesCaminho(x, raiz, &cont);
+    return cont;
+}
+
+int ArvBinBusca::auxContaParesCaminho(int x, NoArv *p, int *cont){
+    if(p == NULL){
+       return 0;
+    }else{
+        if(p->getInfo() % 2 == 0 &&  p->getInfo() != x){
+            *cont = *cont + 1;
+            return auxContaParesCaminho(x , p->getDir(), cont) + auxContaParesCaminho(x , p->getEsq(), cont);
+        }else if(p->getInfo() % 2 == 0 &&  p->getInfo() == x){
+            *cont = *cont + 1;
+            return auxContaParesCaminho(x , p->getDir(), cont) + auxContaParesCaminho(x , p->getEsq(), cont);
+        }else{
+            return auxContaParesCaminho(x , p->getDir(), cont) + auxContaParesCaminho(x , p->getEsq(), cont);
+        }
     }
 }
