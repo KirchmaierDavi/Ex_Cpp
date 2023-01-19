@@ -14,10 +14,11 @@ using namespace std;
 void questao1()
 {
     // Letra B
-
+    int x = 10;
+    int y = 20;
 
     // Letra C
-
+    cout <<"enderecos de memoria de X: " << &x << "e Y: " << &y << endl;
 
     // Letra D
 

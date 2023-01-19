@@ -46,10 +46,34 @@ void ListaCont::imprime ()
 
 bool ListaCont::insereIntervalo(int a, int b)
 {
-    // Implemente aqui a sua solução para a questão 2.
-    // Se necessário, remova o código abaixo.
+    int ant = max;
+    int tamanho;
+    int menor, maior;
+    if(b > a){
+        tamanho = b - a;
+        maior = b;
+        menor = a;
+    }else{
+        tamanho = a - b;
+        maior = a;
+        menor = b;
+    }
 
-    return false;
+    if(n + tamanho > max){
+        max = max + tamanho;
+    }
+
+    for(int i = 0; (menor + i) != maior; i++){
+        vet[n] = menor + i;
+        n = n + 1;
+    }
+    
+
+    if(ant == max){
+        return false;
+    }
+    return true;
+    
 }
 //-Q2
 // ----------------------------------------------------------------------------

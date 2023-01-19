@@ -54,7 +54,22 @@ void ListaDupla::imprime ()
 
 void ListaDupla::removeMaior()
 {
-    // Implemente aqui a sua solução para a questão 3.
+    NoDuplo* p = primeiro;
+    NoDuplo* maior = primeiro;
+    if(p == NULL){
+        cout <<"lista vazia!"<< endl;
+        exit (1);
+    }
+    while(p != NULL){
+        if(maior->getInfo() < p->getInfo()){
+            maior = p;
+        }
+        p->getProx();
+    }
+    maior->getAnt()->setProx(maior->getProx());
+    maior->getProx()->setAnt(maior->getAnt());
+    delete maior;
+    n = n - 1;
 
 }
 

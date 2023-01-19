@@ -4,31 +4,31 @@
 
 using namespace std;
 
-ListaEncad::ListaEncad ()
+ListaEncad::ListaEncad()
 {
     primeiro = NULL;
 }
 
-ListaEncad::~ListaEncad ()
+ListaEncad::~ListaEncad()
 {
     // OMITIDO
 }
 
 void ListaEncad::insereInicio(int val)
 {
-    No *novo = new No ();
-    novo->setInfo (val);
-    novo->setProx (primeiro);
+    No *novo = new No();
+    novo->setInfo(val);
+    novo->setProx(primeiro);
     primeiro = novo;
 }
 
-void ListaEncad::imprime ()
+void ListaEncad::imprime()
 {
     cout << "[";
-    for (No *p = primeiro; p != NULL; p = p->getProx ())
+    for (No *p = primeiro; p != NULL; p = p->getProx())
     {
-        cout << p->getInfo ();
-        if (p->getProx () != NULL)
+        cout << p->getInfo();
+        if (p->getProx() != NULL)
         {
             cout << ", ";
         }
@@ -37,13 +37,42 @@ void ListaEncad::imprime ()
 }
 
 // ----------------------------------------------------------------------------
-//Q4
+// Q4
 
 void ListaEncad::removeBloco(int a, int b)
 {
-    // Implemente aqui a sua solução para a questão 4.
+    No *p = primeiro;
+    No *ant = primeiro;
+    if (p == NULL)
+    {
+        exit(1);
+    }
 
+    /*while (p != NULL)
+    {
+        if (p->getInfo() == a && p->getProx() != NULL)
+        {
+            while (p->getInfo() != b)
+            {
+                No *aux = p;
+                p = p->getProx();
+                
+            }
+        }
+    }*/
+    if (p->getProx() != NULL && p->getProx()->getInfo() == a){
+        while (p->getInfo() != b){
+            ant = p;
+            p = p->getProx();
+            ant->setProx(p->getProx());
+            delete p;
+            p = ant->getProx();
+        }
+        if(p->getInfo() == b){
+            ant->setProx(p->getProx());
+            delete p;
+        }
+    }
 }
-
 //-Q4
 // ----------------------------------------------------------------------------
