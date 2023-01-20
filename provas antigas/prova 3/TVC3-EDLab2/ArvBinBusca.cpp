@@ -1,12 +1,31 @@
+#include <iostream>
+#include <cmath>
 #include "ArvBinBusca.h"
 
 // ----------------------------------------------------------------------------
 //Q1
 int ArvBinBusca::contaIntervalo(int a, int b)
 {
-    // IMPLEMENTE AQUI SUA SOLUCAO
-    // REMOVA O COMANDO ABAIXO
-   return 0;
+    int n = 0;
+    if(a < b){
+        auxContaIntervalo(a, b, &n, raiz);
+    }else{
+        auxContaIntervalo(b, a, &n, raiz);
+    }
+
+    return n;
+}
+
+void ArvBinBusca::auxContaIntervalo(int a, int b, int *n, No *p){
+    if(p != NULL){
+        if(p->getInfo() >= a && p->getInfo() <= b){
+            *n = *n + 1;
+        }
+        auxContaIntervalo(a, b, n, p->getDir());
+        auxContaIntervalo(a, b, n, p->getEsq());
+    }else{
+        cout<<"lista vazia"<< endl;
+    }
 }
 //-Q1
 // ----------------------------------------------------------------------------
@@ -16,9 +35,24 @@ int ArvBinBusca::contaIntervalo(int a, int b)
 //Q2
 No * ArvBinBusca::buscaPai(int x)
 {
-    // IMPLEMENTE AQUI SUA SOLUCAO
-    // REMOVA O COMANDO ABAIXO
-	return NULL;
+    No* pai = auxBuscaPai(x, raiz);
+    return pai;
+}
+
+No * ArvBinBusca::auxBuscaPai(int x, No* p){
+    if(p == NULL){
+        return NULL;
+    }else{
+        if(p->getDir()->getInfo() == x){
+            return p;
+        }else if(p->getEsq()->getInfo() == x){
+            return p;
+        }
+
+        if(p->getInfo() > x);
+            return auxBuscaPai(x, p->getEsq());
+        return auxBuscaPai(x, p->getDir());
+    }
 }
 //-Q2
 // ----------------------------------------------------------------------------
@@ -27,9 +61,26 @@ No * ArvBinBusca::buscaPai(int x)
 //Q3
 int * ArvBinBusca::criaVetNivel(int k)
 {
-    // IMPLEMENTE AQUI SUA SOLUCAO
-    // REMOVA O COMANDO ABAIXO
-    return NULL;
+    int tam = pow(2,k);
+    int *vet = new int [tam];
+    int pos = 0;
+
+    AUXcriaVetNivel(raiz,vet, 0, k, &pos);
+
+
+    return vet;
+}
+
+void ArvBinBusca::AUXcriaVetNivel(No *p,int *vet, int atual, int k, int *pos)
+{
+    if(p!= NULL)
+    {
+        if(atual == k)
+            vet[(*pos)++] = p->getInfo();
+
+        AUXcriaVetNivel(p->getEsq(), vet, atual+1, k, pos);
+        AUXcriaVetNivel(p->getDir(), vet, atual+1, k, pos);
+    }
 }
 //-Q3
 // ----------------------------------------------------------------------------
@@ -39,7 +90,7 @@ int * ArvBinBusca::criaVetNivel(int k)
 
  ArvBinBusca::ArvBinBusca()
  {
-     raiz = NULL;
+    raiz = NULL;
  }
 
  ArvBinBusca::~ArvBinBusca()

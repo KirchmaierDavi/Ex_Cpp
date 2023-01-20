@@ -21,12 +21,14 @@ public:
 
     // Questao 1  ------------------------------------------------------------
     int contaIntervalo(int a, int b);
+    void auxContaIntervalo(int a, int b, int *n, No *p);
 
     // Questao 2 --------------------------------------------------------------
     No* buscaPai(int x);
-
+    No* auxBuscaPai(int x, No* p);
     // Questao 3 --------------------------------------------------------------
     int * criaVetNivel(int k);
+    void AUXcriaVetNivel(No *p,int *vet, int atual, int k, int *pos);
 
 private:
 
