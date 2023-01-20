@@ -6,10 +6,19 @@
 
 void ArvBinBusca::nosImpares02Filhos(int *nImp, int *n02F)
 {
-
+    auxNosImp2filhos(nImp, n02F, raiz);
 }
 
-
+void ArvBinBusca::auxNosImp2filhos( int *nImp, int *n02F, NoArv *p){
+    if(p != NULL){
+        if(p->getInfo() % 2 != 0)
+            *nImp = * nImp + 1;
+        if(p->getDir() != NULL && p->getEsq() != NULL)
+            *n02F = *n02F + 1;
+        auxNosImp2filhos(nImp, n02F, p->getDir());
+        auxNosImp2filhos(nImp, n02F, p->getEsq());
+    }
+}
 //-Q1
 
 // ----------------------------------------------------------------------------
@@ -17,7 +26,34 @@ void ArvBinBusca::nosImpares02Filhos(int *nImp, int *n02F)
 
 void ArvBinBusca::insNaoRec(int val)
 {
-
+    NoArv *p = raiz;
+    if(raiz == NULL){
+        p = new NoArv();
+        p->setInfo(val);
+        p->setDir(NULL);
+        p->setEsq(NULL);
+    }else{
+        while (p != NULL){
+            if(p->getInfo() > val)
+                p = p->getEsq();
+            else if(p->getInfo() < val)
+                p = p->getDir();
+        }
+        NoArv * novo;
+        novo = new NoArv();
+        if(p->getInfo() > val){
+            p->setEsq(novo);
+            novo->setEsq(NULL);
+            novo->setDir(NULL);
+            novo->setInfo(val);
+        }else {
+            p->setDir(novo);
+            novo->setEsq(NULL);
+            novo->setDir(NULL);
+            novo->setInfo(val);
+        }
+           
+    }
 }
 
 //-Q2
@@ -27,7 +63,7 @@ void ArvBinBusca::insNaoRec(int val)
 
 int* ArvBinBusca::vetIntervalo(int a, int b, int k)
 {
-    ///RETIRAR O CÓDICO ABAIXO. USADO PARA RODAR CORRETAMENTO OS TESTES
+    ///RETIRAR O Cï¿½DICO ABAIXO. USADO PARA RODAR CORRETAMENTO OS TESTES
     return NULL;
 }
 
@@ -44,11 +80,11 @@ ArvBinBusca::ArvBinBusca()
 
 ArvBinBusca::~ArvBinBusca()
 {
-    /// destrutor vazio (só para avaliação)
+    /// destrutor vazio (sï¿½ para avaliaï¿½ï¿½o)
 }
 
 void ArvBinBusca::cria(int c, ArvBinBusca *sae, ArvBinBusca *sad)
-{///Só para a avaliação.
+{///Sï¿½ para a avaliaï¿½ï¿½o.
     NoArv *p = new NoArv();
     p->setInfo(c);
     p->setEsq(sae->raiz);

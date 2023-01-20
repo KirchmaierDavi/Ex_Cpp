@@ -18,7 +18,7 @@ public:
 
     // Questao 1  -------------------------------------------------------------
     void nosImpares02Filhos(int *nImp, int *n02F);
-
+    void auxNosImp2filhos( int *nImp, int *n02F, NoArv *p);
 
     // Questao 2  -------------------------------------------------------------
     void insNaoRec(int val);
